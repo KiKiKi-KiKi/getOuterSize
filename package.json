@@ -1,0 +1,27 @@
+{
+  "name": "get-outer-size",
+  "version": "0.1.0",
+  "description": "Get Elements width / height including border & margin.",
+  "main": "dist-cjs/index.js",
+  "module": "dist-esm/index.js",
+  "types": "dist-cjs/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiKiKi-KiKi/getOuterSize.git"
+  },
+  "keywords": [
+    "size",
+    "margin",
+    "width",
+    "height"
+  ],
+  "author": "KiKiKi KiKi <https://twitter.com/KiKiKi_KiKi>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KiKiKi-KiKi/getOuterSize/issues"
+  },
+  "homepage": "https://github.com/KiKiKi-KiKi/getOuterSize#readme",
+  "scripts": {
+    "test": "jest"
+  }
+}
