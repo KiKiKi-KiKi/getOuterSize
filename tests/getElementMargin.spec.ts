@@ -1,21 +1,22 @@
 import { getElementMargin } from '../src/lib';
 
-let divElm: null | HTMLElement = null;
+let element: HTMLElement | null = null;
 
 beforeEach(() => {
   // setup a DOM element as a render target
-  divElm = document.createElement('div');
-  document.body.appendChild(divElm);
+  element = document.createElement('div');
+  document.body.appendChild(element);
 });
 
 afterEach(() => {
   // cleanup on exiting
-  divElm && divElm.remove();
-  divElm = null;
+  element && element.remove();
+  element = null;
 });
 
 describe('getElementMargin', () => {
   it('return margins from has margin elment', () => {
+    const divElm = element as HTMLElement;
     divElm.setAttribute('style', 'margin: 1px 2px 3px 4px');
     const { top, right, bottom, left } = getElementMargin(divElm);
 
@@ -26,6 +27,7 @@ describe('getElementMargin', () => {
   });
 
   it("return margins 0 from don't have margin elment", () => {
+    const divElm = element as HTMLElement;
     const { top, right, bottom, left } = getElementMargin(divElm);
 
     expect(top).toBe(0);
@@ -35,6 +37,7 @@ describe('getElementMargin', () => {
   });
 
   it('return margins as float value', () => {
+    const divElm = element as HTMLElement;
     divElm.setAttribute('style', 'margin: .25rem 1.5rem');
     const { top, right, bottom, left } = getElementMargin(divElm);
 

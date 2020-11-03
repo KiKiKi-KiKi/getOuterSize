@@ -1,10 +1,10 @@
 import getOuterSize from '../src/index';
 
-let divElm: null | HTMLElement = null;
+let element: HTMLElement | null = null;
 beforeEach(() => {
   // setup a DOM element as a render target
-  divElm = document.createElement('div');
-  document.body.appendChild(divElm);
+  element = document.createElement('div');
+  document.body.appendChild(element);
   Element.prototype.getBoundingClientRect = jest.fn(() => {
     return {
       x: 0,
@@ -21,13 +21,14 @@ beforeEach(() => {
 
 afterEach(() => {
   // cleanup on exiting
-  divElm && divElm.remove();
-  divElm = null;
+  element && element.remove();
+  element = null;
 });
 
 describe('getOuterSize', () => {
   describe('return width & height including margin', () => {
     it('from has margin element', () => {
+      const divElm = element as HTMLElement;
       divElm.setAttribute('style', 'margin: 10px 5px 5px 10px');
 
       const { width, height } = getOuterSize(divElm);
@@ -38,6 +39,7 @@ describe('getOuterSize', () => {
   });
 
   it('from no margin element', () => {
+    const divElm = element as HTMLElement;
     const { width, height } = getOuterSize(divElm);
 
     expect(width).toBe(100);
@@ -45,6 +47,7 @@ describe('getOuterSize', () => {
   });
 
   it('with float value', () => {
+    const divElm = element as HTMLElement;
     divElm.setAttribute('style', 'margin: 0.25rem;');
 
     const { width, height } = getOuterSize(divElm);
