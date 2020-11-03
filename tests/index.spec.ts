@@ -44,9 +44,12 @@ describe('getOuterSize', () => {
     expect(height).toBe(100);
   });
 
+  it('with float value', () => {
+    divElm.setAttribute('style', 'margin: 0.25rem;');
+
     const { width, height } = getOuterSize(divElm);
 
-    expect(width).toBe(0);
-    expect(height).toBe(0);
+    expect(width).toBe(100 + 0.25 * 2);
+    expect(height).toBe(100 + 0.25 * 2);
   });
 });
