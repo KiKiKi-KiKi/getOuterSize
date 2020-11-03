@@ -24,7 +24,7 @@
   "scripts": {
     "build:cjs": "tsc --project . --module commonjs --outDir ./dist-cjs",
     "build:esm": "tsc --project . --module esNext --outDir ./dist-esm",
-    "build": "npm run build:cjs && build:esm",
+    "build": "npm run build:cjs && npm run build:esm",
     "test": "jest",
     "test:w": "jest --watch",
     "test:coverage": "jest --coverage",
