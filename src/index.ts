@@ -25,7 +25,7 @@ const getElementMargin = (element: HTMLElement): IgetElementMargin => {
   return (['top', 'right', 'bottom', 'left'] as Array<keyof IgetElementMargin>).reduce((obj, key) => {
     return {
       ...obj,
-      [key]: parseFloat(styles.getPropertyValue(`margin-${key}`)),
+      [key]: parseFloat(styles.getPropertyValue(`margin-${key}`)) || 0,
     };
   }, {} as Partial<IgetElementMargin>) as IgetElementMargin;
 };
