@@ -24,4 +24,13 @@ describe('getOuterSize', () => {
       expect(height).toBe(10 + 5);
     });
   });
+
+  it('from no margin element', () => {
+    divElm.setAttribute('style', 'width: 100px; height: 100px;');
+
+    const { width, height } = getOuterSize(divElm);
+
+    expect(width).toBe(0);
+    expect(height).toBe(0);
+  });
 });
