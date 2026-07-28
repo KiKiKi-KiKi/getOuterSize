@@ -1,39 +1,28 @@
 name: CI
 
 on:
+  push:
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
-  build:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
+  ci:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [20, 22, 24]
 
     steps:
-      - uses: actions/checkout@v1
-      - name: setup
-        run: npm install
-      - name: eslint review
-        uses: reviewdog/action-eslint@v1
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
-          eslint_flags: './**/*.{ts,js}'
-      - name: Run eslint
-        run: npm run lint
-      - name: Run Jest
-        run: npm run test
-      - name: Upload test coverage artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: coverage
-      - name: Show coverage in comments
-        uses: ziishaned/jest-reporter-action@v0.0.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          test-command: "yarn jest --coverage"
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
