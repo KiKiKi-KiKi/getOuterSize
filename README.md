@@ -1,8 +1,7 @@
 # get-outer-size
 
 [![NPM version](https://badgen.net/npm/v/get-outer-size)](https://www.npmjs.com/package/get-outer-size)
-[![Build Status](https://travis-ci.com/KiKiKi-KiKi/getOuterSize.svg?branch=main)](https://travis-ci.com/KiKiKi-KiKi/getOuterSize)
-[![Coverage Status](https://coveralls.io/repos/github/KiKiKi-KiKi/getOuterSize/badge.svg?branch=master)](https://coveralls.io/github/KiKiKi-KiKi/getOuterSize?branch=master) 
+[![CI](https://github.com/KiKiKi-KiKi/getOuterSize/actions/workflows/ci.yml/badge.svg)](https://github.com/KiKiKi-KiKi/getOuterSize/actions/workflows/ci.yml)
 [![ISC License](http://img.shields.io/badge/license-ISC-green.svg?style=flat)](https://github.com/KiKiKi-KiKi/useDebounceHooks/blob/master/package.json)
 
 ## install

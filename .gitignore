@@ -14,6 +14,6 @@ yarn-error.log*
 
 .vscode/*
 !.vscode/extensions.json
-!.vscode/settings.json
+!.vscode/settings.sample.json
 
 !.gitkeep
