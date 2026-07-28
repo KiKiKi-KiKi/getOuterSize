@@ -1,6 +1,6 @@
 {
   "name": "get-outer-size",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Get Elements width / height including border & margin.",
   "main": "dist-cjs/index.js",
   "module": "dist-esm/index.js",
